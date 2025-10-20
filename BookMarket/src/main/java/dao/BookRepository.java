@@ -59,9 +59,13 @@ public class BookRepository {
   
   // 도서 상세 정보를 가져오는 메소드
   public Book getBookById(String bookId) {
+    System.out.println(bookId);
+    
     if (bookId == null) return null;
     
     for (Book book : listOfBooks) {
+      System.out.println(book);
+      
       if (book != null && bookId.equals(book.getBookId())) {
         return book; // 찾으면 바로 반환
       }
