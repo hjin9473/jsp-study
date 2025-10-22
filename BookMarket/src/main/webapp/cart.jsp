@@ -53,30 +53,27 @@
     				// 세션에 저장된 장바구니 정보 가져오기
     				ArrayList<Book> cartList = (ArrayList<Book>) session.getAttribute("cartlist");
     				// 예외를 피하기 위해 null이면 빈 ArrayList라도 생성
-    				if (cartList==null) {
-    				  cartList = new ArrayList<Book>();
+    				if (cartList == null) {
+    					cartList = new ArrayList<Book>();
     				}
     				// 장바구니에 담긴 도서 리스트 하나씩 출력하기
     				int sum = 0;
-    				for (int i = 0; i < cartList.size(); i++) {
-    			    Book book = cartList.get(i); 
-    			    int total = book.getUnitPrice() * book.getQuantity(); 
-    			    sum += total; 
-    			
-    				
+    				for (Book book : cartList) {
+    					int total = book.getUnitPrice() * book.getQuantity();
+    					sum += total;
     			%>
     			<tr>
-    				<td><%= book.getName() %></td>
-			        <td><%= book.getUnitPrice() %></td>
-			        <td><%= book.getQuantity() %></td>
-			        <td><%= total %></td>
+    				<td><%= book.getBookId() %> - <%= book.getName() %></td>
+    				<td><%= book.getUnitPrice() %></td>
+    				<td><%= book.getQuantity() %></td>
+    				<td><%= total %></td>
     				<td>
-    					<a href="./removeCart.jsp?id=" class="badge text-bg-danger">삭제</a>
+    					<a href="./removeCart.jsp?id=<%= book.getBookId() %>" class="badge text-bg-danger">삭제</a>
     				</td>
     			</tr>
     			<%
-			    }
-				%>
+    				} // 반복문 종료
+    			%>
     			<tr>
     				<th></th>
     				<th></th>
