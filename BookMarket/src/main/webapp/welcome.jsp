@@ -14,7 +14,7 @@
 <body>
 	<!-- 북마켓 프로젝트 만들기 -->
 	<!-- 한글 출력하기 -->
-	<%! 
+	<%!
 		String greeting = "도서 쇼핑몰에 오신 것을 환영합니다.";
 		String tagline = "Welcome to Web Market!";
 	%>
